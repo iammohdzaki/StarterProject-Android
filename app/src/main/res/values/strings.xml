@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">StarterProject</string>
+
+    <string name="unexpected_error_occurred">Something went wrong. Please try again later.</string>
+    <string name="no_internet_try_again">No Internet Connection. Please try again later.</string>
+    <string name="ok_text">OK</string>
+    <string name="retry">Retry</string>
+    <string name="download">Download</string>
+    <string name="message">Message</string>
+
+
 </resources>
