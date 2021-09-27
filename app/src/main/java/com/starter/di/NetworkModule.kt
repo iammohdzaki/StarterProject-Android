@@ -2,7 +2,7 @@ package com.starter.di
 
 import com.google.gson.GsonBuilder
 import com.starter.BuildConfig
-import com.starter.network.client.ApiService
+import com.starter.network.services.ApiService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

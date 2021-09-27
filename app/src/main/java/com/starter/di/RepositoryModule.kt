@@ -1,6 +1,6 @@
 package com.starter.di
 
-import com.starter.network.client.ApiService
+import com.starter.network.services.ApiService
 import com.starter.network.NetworkRepository
 import dagger.Module
 import dagger.Provides

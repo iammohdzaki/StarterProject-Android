@@ -1,4 +1,4 @@
-package com.starter.network.client
+package com.starter.network.util
 
 /**
 Created by Mohammad Zaki

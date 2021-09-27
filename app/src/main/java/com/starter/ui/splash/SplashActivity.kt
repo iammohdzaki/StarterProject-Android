@@ -23,7 +23,7 @@ class SplashActivity : AppCompatActivity() {
         splashViewModel.versionData.observe(this, { versionData ->
             when (versionData) {
                 is ResponseResolver.Success -> Toast.makeText(this, versionData.data.version, Toast.LENGTH_SHORT).show()
-                is ResponseResolver.Failure -> this@SplashActivity.toast(versionData.e.toString())
+                is ResponseResolver.Failure -> this@SplashActivity.toast(versionData.error)
                 else -> this@SplashActivity.toast("")
             }
         })
