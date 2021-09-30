@@ -8,6 +8,7 @@ import androidx.datastore.preferences.preferencesDataStore
 import com.google.gson.Gson
 import com.starter.utils.extensions.justTry
 import dagger.hilt.android.qualifiers.ApplicationContext
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.map
 import javax.inject.Inject
@@ -36,11 +37,11 @@ class PreferencesManager @Inject constructor(@ApplicationContext context: Contex
     /**
      * Get String Type Values
      */
-    suspend fun getString(key: Preferences.Key<String>): String {
+     fun getString(key: Preferences.Key<String>): Flow<String> {
         val value = preferencesFlow.data.map { preferences ->
             preferences[key] ?: ""
         }
-        return value.first()
+        return value
     }
 
     /**
