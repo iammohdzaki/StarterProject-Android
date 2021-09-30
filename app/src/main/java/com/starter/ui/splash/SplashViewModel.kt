@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.starter.data.model.entity.Version
+import com.starter.local.preferences.PreferencesHelper
 import com.starter.local.preferences.PreferencesManager
 import com.starter.network.NetworkRepository
 import com.starter.network.helper.ResponseResolver
@@ -26,7 +27,7 @@ private const val TAG = "SplashViewModel"
 class SplashViewModel @Inject
 constructor(
     private val networkRepository: NetworkRepository,
-    private val preferencesManager: PreferencesManager
+    private val preferencesHelper: PreferencesHelper
 ) : ViewModel() {
 
 
@@ -62,14 +63,16 @@ constructor(
 
     fun saveVersion(version: String) {
         viewModelScope.launch {
-            preferencesManager.updateVersionCode(version)
+            preferencesHelper.updateVersion(version)
             Log.d(TAG, "getVersion: ---> Writing version($version)")
         }
     }
 
     fun getVersionCode() {
         viewModelScope.launch {
-            versionCode.postValue(preferencesManager.versionCode.first())
+            val version = preferencesHelper.getVersion()
+            versionCode.postValue(version)
+            Log.d(TAG, "getVersionCode: --> Reading version($version)")
         }
     }
 }

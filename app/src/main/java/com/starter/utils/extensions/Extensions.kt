@@ -56,5 +56,5 @@ fun ImageView.loadImage(url: String?, mContext: Context) {
             .load(url)
             .into(this)
     }
-
 }
+

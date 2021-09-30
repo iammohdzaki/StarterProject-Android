@@ -46,4 +46,5 @@ fun String.convertToCamelCase(): String {
 inline fun <T> justTry(block: () -> T) = try {
     block()
 } catch (e: Throwable) {
+    e.printStackTrace()
 }
