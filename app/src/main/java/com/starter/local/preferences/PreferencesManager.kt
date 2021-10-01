@@ -37,11 +37,11 @@ class PreferencesManager @Inject constructor(@ApplicationContext context: Contex
     /**
      * Get String Type Values
      */
-     fun getString(key: Preferences.Key<String>): Flow<String> {
+     suspend fun getString(key: Preferences.Key<String>): String {
         val value = preferencesFlow.data.map { preferences ->
             preferences[key] ?: ""
         }
-        return value
+        return value.first()
     }
 
     /**

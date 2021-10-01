@@ -8,5 +8,5 @@ on Sep,23 2021
  **/
 data class Version(
     @SerializedName("version") var version: String = "",
-    @SerializedName("isForce") var isForce: Int,
+    @SerializedName("isForce") var isForce: Int = 0,
 )

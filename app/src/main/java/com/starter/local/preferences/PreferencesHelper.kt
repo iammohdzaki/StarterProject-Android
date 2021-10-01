@@ -23,7 +23,7 @@ class PreferencesHelper @Inject constructor(
     }
 
     suspend fun getVersion(): String {
-        return ""
+        return preferencesManager.getString(PreferencesKeys.VERSION_CODE)
     }
 
 }
