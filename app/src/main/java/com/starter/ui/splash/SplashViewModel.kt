@@ -8,6 +8,7 @@ import com.starter.data.model.entity.Version
 import com.starter.local.preferences.PreferencesHelper
 import com.starter.local.preferences.PreferencesManager
 import com.starter.network.NetworkRepository
+import com.starter.network.helper.ApiParams
 import com.starter.network.helper.ResponseResolver
 import com.starter.network.helper.StatusCode
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -40,7 +41,10 @@ constructor(
 
     fun getVersion() {
         viewModelScope.launch {
-            when (val response = networkRepository.getVersion()) {
+            val params = ApiParams.Builder
+                .add("key","zaki")
+                .build()
+            when (val response = networkRepository.getVersion(params.getKeys())) {
                 is ResponseResolver.Success -> {
                     versionData.postValue(
                         ResponseResolver.success(

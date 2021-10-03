@@ -4,6 +4,7 @@ import com.google.common.truth.Truth.assertThat
 import com.google.gson.GsonBuilder
 import com.starter.BuildConfig
 import com.starter.data.model.entity.Version
+import com.starter.network.helper.ApiParams
 import com.starter.network.helper.ResponseResolver
 import com.starter.network.services.ApiService
 import kotlinx.coroutines.runBlocking
@@ -34,9 +35,13 @@ class NetworkRepositoryTest {
 
     @Test
     fun `get version api call`() = runBlocking {
-        val result = networkRepository.getVersion()
-
+        val params = ApiParams.Builder
+            .add("key", "zaki")
+            .buildForUnitTest()
+        println(params.getKeys().toString())
+        val result = networkRepository.getVersion(params.getKeys())
         val version = if (result is ResponseResolver.Success) {
+            println(result.data.toString())
             result.data.toResponseModel(Version::class.java)
         } else {
             Version()

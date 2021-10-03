@@ -11,3 +11,5 @@ object StatusCodes {
     const val FAILED = 1
     const val DEFAULT = -1
 }
+
+const val REQUEST_BODY = "Request Body : "

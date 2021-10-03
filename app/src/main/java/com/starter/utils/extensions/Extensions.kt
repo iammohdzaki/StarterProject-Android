@@ -3,9 +3,11 @@ package com.starter.utils.extensions
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
+import android.content.res.Configuration
 import android.os.Bundle
 import android.view.View
 import android.widget.ImageView
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.bumptech.glide.Glide
 
@@ -55,6 +57,15 @@ fun ImageView.loadImage(url: String?, mContext: Context) {
         Glide.with(mContext)
             .load(url)
             .into(this)
+    }
+}
+
+fun Activity.switchTheme() {
+    when (resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK) {
+        Configuration.UI_MODE_NIGHT_YES ->
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+        Configuration.UI_MODE_NIGHT_NO ->
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
     }
 }
 
