@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/tvImageDelete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="gone"
+        android:layout_marginBottom="@dimen/margin_padding_12dp"
+        />
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="@dimen/font_14sp"
+        android:text="Sample"
+        android:layout_marginTop="@dimen/margin_padding_32dp"
+        android:textAppearance="@style/FontMedium"
+        android:textColor="#2b2926"
+        android:textSize="@dimen/font_18sp" />
+
+    <TextView
+        android:id="@+id/tvMessage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_padding_20dp"
+        android:gravity="center"
+        tools:text= "Message"
+        android:textAppearance="@style/FontRegular"
+        android:textColor="@color/black"
+        android:textSize="@dimen/font_14sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/font_12sp"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/btnPositive"
+            style="@style/primary_button"
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:elevation="0dp"
+            android:visibility="visible" />
+
+        <Button
+            android:id="@+id/btnNegative"
+            style="@style/secondary_button"
+            android:layout_width="match_parent"
+            android:layout_marginTop="15dp"
+            android:elevation="0dp"
+            android:visibility="visible" />
+    </LinearLayout>
+</LinearLayout>

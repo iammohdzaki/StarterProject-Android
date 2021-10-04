@@ -14,4 +14,17 @@
     <string name="log_fcm_data_message">"FCM Data Message: "</string>
     <string name="notification_channel_default">Notifications</string>
     <string name="notification_channel_description_default">Latest Updates</string>
+
+    <!-- Location -->
+    <string name="rational_msg_location_permissions">Please allow location permission to get your
+        current location.
+    </string>
+    <string name="msg_allow_location_settings">Please enable location in settings.</string>
+    <string name="msg_allow_location_settings_force_gps">Please enable location in settings and
+        select high accuracy mode.
+    </string>
+    <string name="heading_permission_required">PERMISSION REQUIRED</string>
+    <string name="current_address">Current Address</string>
+    <string name="fetching_location">Fetching Location…</string>
+    <string name="your_location">Your Location</string>
 </resources>
