@@ -5,6 +5,7 @@ import android.content.Context
 import android.content.Intent
 import android.content.res.Configuration
 import android.os.Bundle
+import android.util.DisplayMetrics
 import android.view.View
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatDelegate

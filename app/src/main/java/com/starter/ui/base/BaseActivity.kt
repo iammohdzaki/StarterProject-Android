@@ -1,12 +1,16 @@
 package com.starter.ui.base
 
 import android.view.View
+import android.view.ViewGroup
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.google.android.material.snackbar.Snackbar
+import com.starter.BuildConfig
 import com.starter.R
+import com.starter.ui.custom.DrawOnTop
 import com.starter.utils.StatusCodes
+
 
 /**
 Created by Mohammad Zaki
@@ -56,6 +60,22 @@ open class BaseActivity : AppCompatActivity() {
     fun setOnClickListeners(onClickListener: View.OnClickListener, vararg views: View) {
         for (view in views)
             view.setOnClickListener(onClickListener)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        if(BuildConfig.WATER_MARK){
+            val mDraw = DrawOnTop(this)
+            addContentView(
+                mDraw,
+                ViewGroup.LayoutParams(
+                    ViewGroup.LayoutParams.WRAP_CONTENT,
+                    ViewGroup.LayoutParams.WRAP_CONTENT
+                )
+            )
+            mDraw.bringToFront()
+
+        }
     }
 
 

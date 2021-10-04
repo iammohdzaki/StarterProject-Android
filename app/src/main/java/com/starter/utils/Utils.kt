@@ -1,11 +1,13 @@
 package com.starter.utils
 
+import android.app.Activity
 import android.content.Context
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import android.os.Build
 import android.util.Log
 import androidx.annotation.RequiresApi
+import com.google.android.gms.common.ConnectionResult
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.google.gson.JsonParser
@@ -87,4 +89,5 @@ object Utils {
     private fun objectToJson(`object`: Any): String {
         return Gson().toJson(`object`).replace("\\", "")
     }
+
 }

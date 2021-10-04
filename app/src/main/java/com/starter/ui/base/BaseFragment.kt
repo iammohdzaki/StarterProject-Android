@@ -14,7 +14,7 @@ import com.starter.utils.StatusCodes
 Created by Mohammad Zaki
 on Sep,28 2021
  **/
-class BaseFragment : Fragment() {
+open class BaseFragment : Fragment() {
 
     lateinit var mContext: Context
 

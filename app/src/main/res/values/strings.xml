@@ -1,5 +1,4 @@
 <resources>
-    <string name="app_name">StarterProject</string>
 
     <string name="unexpected_error_occurred">Something went wrong. Please try again later.</string>
     <string name="no_internet_try_again">No Internet Connection. Please try again later.</string>
@@ -8,5 +7,11 @@
     <string name="download">Download</string>
     <string name="message">Message</string>
 
-
+    <!-- Fcm service -->
+    <string name="log_fcm_message_id">"FCM Message Id: "</string>
+    <string name="log_fcm_notification_message">"FCM Notification Message: "</string>
+    <string name="log_fcm_data">"FCM Data: "</string>
+    <string name="log_fcm_data_message">"FCM Data Message: "</string>
+    <string name="notification_channel_default">Notifications</string>
+    <string name="notification_channel_description_default">Latest Updates</string>
 </resources>
