@@ -1,6 +1,7 @@
 package com.starter.ui.splash
 
 import android.graphics.Color
+import android.location.Location
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
@@ -10,6 +11,7 @@ import com.starter.BuildConfig
 import com.starter.R
 import com.starter.data.model.entity.Version
 import com.starter.databinding.ActivitySplashBinding
+import com.starter.location.BaseLocationActivity
 import com.starter.network.helper.ResponseResolver
 import com.starter.notifications.DeviceTokenInterface
 import com.starter.notifications.NotificationService
@@ -17,8 +19,10 @@ import com.starter.ui.base.BaseActivity
 import com.starter.utils.Utils.hasInternetConnection
 import dagger.hilt.android.AndroidEntryPoint
 
+private const val TAG = "SplashActivity"
+
 @AndroidEntryPoint
-class SplashActivity : BaseActivity(), DeviceTokenInterface {
+class SplashActivity : BaseLocationActivity(), DeviceTokenInterface {
 
     lateinit var splashViewModel: SplashViewModel
     private var _versionData: Version? = null
@@ -76,18 +80,20 @@ class SplashActivity : BaseActivity(), DeviceTokenInterface {
             showToast(R.string.no_internet_try_again)
             return
         }
-        /*if (!isPlayServiceAvailable(this)) {
-              return
-          }*/
         // Register for push
         NotificationService.setCallback(this)
     }
 
     override fun onTokenReceived(token: String) {
         Log.d("DEVICE TOKEN", token)
+        requestCurrentLocation("")
     }
 
     override fun onFailure() {
         NotificationService.retry(this)
+    }
+
+    override fun onLocationReceived(location: Location?) {
+        Log.d(TAG, "onLocationReceived: ${location?.latitude},${location?.longitude}")
     }
 }
