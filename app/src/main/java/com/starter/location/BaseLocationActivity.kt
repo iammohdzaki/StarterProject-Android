@@ -29,18 +29,13 @@ abstract class BaseLocationActivity : BasePermissionActivity() {
         Manifest.permission.ACCESS_COARSE_LOCATION
     )
 
-
-    override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
-        super.onCreate(savedInstanceState, persistentState)
-        locationProvider = LocationServices.getFusedLocationProviderClient(this)
-    }
-
     open fun requestCurrentLocation(rationalMessage: String) {
         requestPermission(PERMISSION_REQUEST_CODE, rationalMessage, permissions)
     }
 
     @SuppressLint("MissingPermission")
     private fun requestLastLocation() {
+        locationProvider = LocationServices.getFusedLocationProviderClient(this)
         locationProvider?.lastLocation?.addOnSuccessListener(this) { location ->
             if (location != null) {
                 onLocationReceived(location)
@@ -107,7 +102,7 @@ abstract class BaseLocationActivity : BasePermissionActivity() {
         startActivity(intent)
     }
 
-    fun stopLocationUpdates() {
+    private fun stopLocationUpdates() {
         if (mLocationCallback != null) {
             locationProvider?.removeLocationUpdates(mLocationCallback)
         }

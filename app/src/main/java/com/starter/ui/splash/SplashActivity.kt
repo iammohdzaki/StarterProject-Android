@@ -41,6 +41,9 @@ class SplashActivity : BaseLocationActivity(), DeviceTokenInterface {
                     Toast.makeText(this, versionData.data.version, Toast.LENGTH_SHORT).show()
                     _versionData = versionData.data
                     splashViewModel.getVersionCode()
+
+                    //Fetch Current Location
+                    requestCurrentLocation("")
                 }
                 is ResponseResolver.Failure -> showToast(versionData.error)
                 else -> showToast("")
@@ -86,7 +89,6 @@ class SplashActivity : BaseLocationActivity(), DeviceTokenInterface {
 
     override fun onTokenReceived(token: String) {
         Log.d("DEVICE TOKEN", token)
-        requestCurrentLocation("")
     }
 
     override fun onFailure() {
